@@ -21,7 +21,9 @@ func main() {
 
 	t, err := tail.TailFile(absPath, tail.Config{
 		Follow: true,
-		ReOpen: true})
+		ReOpen: true,
+		Poll:   true,
+	})
 
 	for line := range t.Lines {
 		fmt.Println(line.Text)

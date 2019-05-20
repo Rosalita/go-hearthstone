@@ -7,6 +7,8 @@ import (
 	"path/filepath"
 
 	"github.com/hpcloud/tail"
+	//enum "github.com/Rosalita/go-hearthstone/hs_enum"
+
 )
 
 func main() {
@@ -24,6 +26,8 @@ func main() {
 		ReOpen: true,
 		Poll:   true,
 	})
+
+	
 
 	for line := range t.Lines {
 		fmt.Println(line.Text)

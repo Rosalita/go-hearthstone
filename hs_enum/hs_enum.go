@@ -1,6 +1,9 @@
 package hs_enum
 
 type GameTag int
+type CardType int
+type Zone int
+type BlockType int
 
 const (
 	TAG_SCRIPT_DATA_NUM_1                           GameTag = 2
@@ -333,16 +336,16 @@ const (
 	FAST_BATTLECRY                                  GameTag = 998
 	END_TURN_BUTTON_ALTERNATIVE_APPEARANCE          GameTag = 1000
 	WEATHER                                         GameTag = 1002
-	WEATHERSNOWSTORM                                GameTag = 1012
-	WEATHERTHUNDERSTORM                             GameTag = 1013
-	WEATHERFIRESTORM                                GameTag = 1014
+	WEATHER_SNOWSTORM                               GameTag = 1012
+	WEATHER_THUNDERSTORM                            GameTag = 1013
+	WEATHER_FIRESTORM                               GameTag = 1014
 	WAND                                            GameTag = 1015
 	TREAT_AS_PLAYED_HERO_CARD                       GameTag = 1016
 	NUM_HERO_POWER_DAMAGE_THIS_GAME                 GameTag = 1025
 	PUZZLE_NAME                                     GameTag = 1026
 	TURN_INDICATOR_ALTERNATIVE_APPEARANCE           GameTag = 1027
 	PREVIOUS_PUZZLE_COMPLETED                       GameTag = 1042
-	GLORIOUSGLOOP                                   GameTag = 1044
+	GLORIOUS_GLOOP                                  GameTag = 1044
 	HEALTH_DISPLAY_COLOR                            GameTag = 1046
 	HEALTH_DISPLAY_NEGATIVE                         GameTag = 1047
 	WHIZBANG_DECK_ID                                GameTag = 1048
@@ -355,7 +358,7 @@ const (
 	BLOCK_ALL_INPUT                                 GameTag = 1071
 	PUZZLE_MODE                                     GameTag = 1073
 	CARD_DOES_NOTHING                               GameTag = 1075
-	CASTSWHENDRAWN                                  GameTag = 1077
+	CASTS_WHEN_DRAWN                                GameTag = 1077
 	SQUELCH_NON_GAME_TRIGGERS_AND_MODIFIERS         GameTag = 1087
 	QUEST_REWARD_DATABASE_ID                        GameTag = 1089
 	DORMANT                                         GameTag = 1090
@@ -404,13 +407,12 @@ const (
 	ALTERNATE_CHAPTER_VO                            GameTag = 1334
 	EXTRA_SPELL_CASTS_ADDITIONAL                    GameTag = 1348
 	SQUELCH_LIFETIME_EFFECTS                        GameTag = 1350
-
-	INVISIBLE_DEATHRATTLE GameTag = 335
-	IMMUNE_TO_SPELLPOWER  GameTag = 349
-	ATTACK_VISUAL_TYPE    GameTag = 251
-	DEV_STATE             GameTag = 268
-	GRANT_CHARGE          GameTag = 355
-	HEAL_TARGED          GameTag = 361
+	INVISIBLE_DEATHRATTLE                           GameTag = 335
+	IMMUNE_TO_SPELLPOWER                            GameTag = 349
+	ATTACK_VISUAL_TYPE                              GameTag = 251
+	DEV_STATE                                       GameTag = 268
+	GRANT_CHARGE                                    GameTag = 355
+	HEAL_TARGED                                     GameTag = 361
 
 	// strings (all deleted?)
 	CARDTEXT_INHAND      GameTag = CARDTEXT // But it came back...
@@ -421,7 +423,7 @@ const (
 	HOW_TO_EARN_GOLDEN   GameTag = 365
 	CARD_TEXT_IN_PLAY    GameTag = 252
 	TARGETING_ARROW_TEXT GameTag = 325
-	LOCALIZATION_NOTES  GameTag = 344
+	LOCALIZATION_NOTES   GameTag = 344
 
 	//Renamed
 	CANT_BE_DAMAGED                GameTag = IMMUNE
@@ -479,12 +481,51 @@ const (
 	PENDING_EVOLUTIONS                 GameTag = 461
 
 	// Missing/guessed, only present in logs
-	WEAPON        GameTag = 334
-	DISCARD_CARDS GameTag = 890
+	WEAPON            GameTag = 334
+	DISCARD_CARDS     GameTag = 890
 	CANT_BE_EXHAUSTED GameTag = 244
 	CANT_EXHAUST      GameTag = 226
 	CANT_TARGET       GameTag = 228
 	CANT_DESTROY      GameTag = 229
+
+	CT_INVALID     CardType = 0
+	CT_GAME        CardType = 1
+	CT_PLAYER      CardType = 2
+	CT_HERO        CardType = 3
+	CT_MINION      CardType = 4
+	CT_SPELL       CardType = 5
+	CT_ENCHANTMENT CardType = 6
+	CT_WEAPON      CardType = 7
+	CT_ITEM        CardType = 8
+	CT_TOKEN       CardType = 9
+	CT_HERO_POWER  CardType = 10
+
+	Z_INVALID         Zone = 0
+	Z_PLAY            Zone = 1
+	Z_DECK            Zone = 2
+	Z_HAND            Zone = 3
+	Z_GRAVEYARD       Zone = 4
+	Z_REMOVEDFROMGAME Zone = 5
+	Z_SETASIDE        Zone = 6
+	Z_SECRET          Zone = 7
+
+	BT_ATTACK BlockType = 1
+	BT_JOUST BlockType = 2
+	BT_POWER BlockType = 3
+	BT_TRIGGER BlockType = 5
+	BT_DEATHS BlockType = 6
+	BT_PLAY BlockType = 7
+	BT_FATIGUE BlockType = 8
+	BT_RITUAL BlockType = 9
+	BT_REVEAL_CARD BlockType = 10
+	BT_GAME_RESET BlockType = 11
+
+	// Removed
+	BT_SCRIPT BlockType = 4
+	BT_ACTION BlockType = 99
+
+	// Renamed
+	BT_CONTINUOUS BlockType = 2
 )
 
 var (

@@ -69,8 +69,7 @@ func main() {
 	})
 
 	for line := range t.Lines {
-		parsed := parse(line.Text)
-		if parsed != "" {
+		if parsed := parse(line.Text); parsed != "" {
 			fmt.Println(parsed)
 		}
 	}
